@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart App – Digital Signage Software</title>
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="4" width="20" height="14" rx="2" stroke="#FECF00" stroke-width="2" />
+                    <path d="M8 22H16" stroke="#FECF00" stroke-width="2" stroke-linecap="round" />
+                    <path d="M12 18V22" stroke="#FECF00" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                Smart App
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="product.html">Product</a></li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="login.html" class="login-pill">Login &rarr;</a>
+                <a href="contact.html" class="btn btn-secondary">Contact Sales</a>
+                <a href="pricing.html" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-video-wrap">
+            <img src="assets/bg_hero.jpg" alt="Hero Background" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="container" style="position: relative; z-index: 10; width: 100%;">
+            <div class="hero-content" style="max-width: 800px;">
+                <div class="badge" style="background: rgba(255,255,255,0.1); color: #fff; margin-bottom: 2rem;">
+                    &#11088;&#11088;&#11088;&#11088;&#11088; 4.9 on Google
+                </div>
+                <h1>Digital signage </br> built for scale</h1>
+                <p>Smart App’s digital signage software and hardware boosts productivity, improves communication, and
+                    engages employees, across every location.</p>
+                <div class="hero-cta">
+                    <a href="pricing.html" class="btn btn-primary">Get Started</a>
+                    <a href="contact.html" class="btn btn-secondary">Get Demo</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- Industry Section -->
+    <section class="industry-section">
+        <div class="industry-sidebar">
+            <h2>Better screens for<br>every industry</h2>
+            <ul class="industry-list" id="industry-tabs">
+                <li><button class="industry-btn active" data-index="0">Manufacturing and Logistics</button></li>
+                <li><button class="industry-btn" data-index="1">Cafeteria &amp; Restaurant</button></li>
+                <li><button class="industry-btn" data-index="2">Retail Promotions</button></li>
+                <li><button class="industry-btn" data-index="3">Events</button></li>
+                <li><button class="industry-btn" data-index="4">Hotels, Resorts &amp; Tourism</button></li>
+            </ul>
+        </div>
+        <div class="industry-main">
+            <div class="tv-screen">
+                <div class="tv-screen-bezel"></div>
+                <div class="tv-content-wrapper" id="tv-content" style="display: flex; width: 100%; height: 100%; transition: opacity 0.4s ease, transform 0.4s ease;">
+                    <div class="tv-left">
+                        <p class="tv-tag" id="tv-tag">TRAINING: 14 October, 1-4pm</p>
+                        <h3 class="tv-title" id="tv-title">On-Site Learning Lab:<br>Empowering Growth<br>and Excellence</h3>
+                        <p class="tv-desc" id="tv-desc">Designed to equip participants with the knowledge, skills, and mindset needed to excel in their roles, contribute meaningfully to their organizations.</p>
+                        <div class="tv-qr-box">
+                            <img src="assets/qr_code.png" alt="QR Code" class="tv-qr">
+                            <p class="tv-qr-text" id="tv-qr-text">Scan and<br>sign up<br>today!</p>
+                        </div>
+                    </div>
+                    <div class="tv-right">
+                        <img id="tv-img" src="assets/workers.jpg" alt="Training Workers">
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#" class="industry-main-btn">Learn More &rarr;</a>
+            
+
+        </div>
+    </section>
+
+    <!-- Hardware Section -->
+    <section class="hardware-section" id="hardware-section">
+        <div class="container hardware-header">
+            <h2>Hardware built for digital signage</h2>
+            <p>Smart app everywhere works with a wide range of hardware options, but our own devices are built for digital signage. They're simple to deploy, more secure, and powered by advanced RDM features.</p>
+            
+            <div class="hardware-toggles">
+                <button class="toggle-btn active">
+                    <span class="pill-icon pixi">PX</span> PIXI
+                </button>
+                <button class="toggle-btn">
+                    <span class="pill-icon os">OS</span> Smart app everywhere OS
+                </button>
+                <button class="toggle-btn">
+                    <span class="pill-icon other">?</span> Other Hardware
+                </button>
+            </div>
+        </div>
+
+        <div class="container hardware-main">
+            <div class="hardware-visual">
+                <img id="hw-img" src="assets/pixi-shadow.avif" alt="PIXI Player" class="device-img">
+                <div id="hw-grid" class="hardware-grid" style="display:none;">
+                    <div class="hw-card"><span style="color:#FF9900;font-weight:700;">Amazon signage</span></div>
+                    <div class="hw-card"><span style="color:#4285F4;font-weight:700;letter-spacing:-0.5px;"><span style="color:#ea4335">c</span><span style="color:#fbbc05">h</span><span style="color:#34a853">r</span><span style="color:#4285f4">o</span><span style="color:#ea4335">m</span><span style="color:#fbbc05">e</span><span style="color:#555;font-weight:400">OS</span></span></div>
+                    <div class="hw-card"><span style="color:#3DDC84;font-weight:800;letter-spacing:-1px;">android</span></div>
+                    <div class="hw-card"><span style="color:#0078D6;font-weight:600;font-family:'Segoe UI',sans-serif;">Windows</span></div>
+                    <div class="hw-card"><span style="color:#333;font-weight:600;">macOS</span></div>
+                    <div class="hw-card"><span style="color:#6B429C;font-weight:700;letter-spacing:-0.5px;">BrightSign</span></div>
+                    <div class="hw-card soc"><span style="color:#000;font-weight:800;font-size:1.1rem;line-height:1;text-align:center;">SONY<br>BRAVIA</span></div>
+                    <div class="hw-card soc"><span style="color:#E40046;font-weight:300;font-size:1.3rem;">webOS</span></div>
+                    <div class="hw-card soc"><span style="color:#000;font-weight:800;font-size:1.3rem;letter-spacing:-0.5px;">TIZEN</span></div>
+                </div>
+                <div id="hw-size" class="size-comparison">
+                    <svg width="60" height="60" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="5" y="45" width="30" height="30" rx="4" stroke="#888" stroke-width="1.5" />
+                        <rect x="15" y="55" width="10" height="10" fill="#bbb" />
+                        <rect x="45" y="15" width="30" height="60" rx="4" stroke="#888" stroke-width="1.5" />
+                        <circle cx="60" cy="22" r="3" fill="#bbb" />
+                    </svg>
+                    <span>Pocket Sized</span>
+                </div>
+            </div>
+            
+            <div class="hardware-content">
+                <p id="hw-price" class="price-tag">$65 - Per device</p>
+                <h3 id="hw-title">Powerful signage,<br>PIXI sized player</h3>
+                <p id="hw-desc" class="desc">Plug and play with our most affordable player - built on Android and powered by Smart app everywhere. Whether you're setting up your first screen or scaling across multiple locations, PIXI is ready to support your needs.</p>
+                
+                <div class="hardware-actions">
+                    <a href="#" class="btn btn-primary">Get Started</a>
+                    <a id="hw-link" href="#" class="link-more">More About PIXI &rarr;</a>
+                </div>
+            </div>
+            
+
+        </div>
+    </section>
+
+    <!-- RDM Section -->
+    <section class="rdm-section">
+        <div class="rdm-background"></div>
+        <div class="container rdm-container">
+            <div class="rdm-content">
+                <h4 class="rdm-subtitle">Remote Device Management</h4>
+                <h2 class="rdm-title">Smart devices.<br>Smarter management.</h2>
+                <p class="rdm-desc">Reduce IT workload and troubleshoot device issues without needing to visit sites. Remote Device Management allows you to update software, activate screens, manage display settings directly from your dashboard.</p>
+                <div class="rdm-actions">
+                    <a href="#" class="btn btn-primary">Get Started</a>
+                    <a href="#" class="rdm-link">More About RDM &rarr;</a>
+                </div>
+            </div>
+            <div class="rdm-visual">
+                <img src="assets/os-scr.webp" alt="Remote Device Management Dashboard">
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="support-section">
+        <div class="container">
+            <h2>Support & Professional Services</h2>
+            <p class="subtitle">All our plans include support from a dedicated team to help you get the most out of our products. gain access to experts who guide onboarding, share best practices, and help you achieve your goals.</p>
+
+            <div class="support-cards">
+                <!-- Card 1 -->
+                <div class="support-card">
+                    <h6><span style="color: #FECF00;">🟨</span> Core & Pro Plan</h6>
+                    <h3>Standard Support</h3>
+                    <ul>
+                        <li>✓ 6 hour response time</li>
+                        <li>✓ 24/5 live chat</li>
+                        <li>✓ 24/5 support hours</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="support-card">
+                    <h6><span style="color: #7b61ff;">🟣</span> Enterprise Plan</h6>
+                    <h3>Premium Support</h3>
+                    <ul>
+                        <li>✓ 1 Hour response time</li>
+                        <li>✓ Phone support</li>
+                        <li>✓ 24/5 live chat</li>
+                        <li>✓ WhatsApp support</li>
+                        <li>✓ Screen sharing</li>
+                        <li>✓ Dedicated support engineer</li>
+                        <li>✓ Case monitoring & review</li>
+                        <li>✓ 24/5 Support (priority escalations)</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="support-card purple-bg">
+                    <h6><span style="color: #7b61ff;">🟣</span> Enterprise Addition</h6>
+                    <h3>Professional Services</h3>
+                    <p class="description">Our Professional Services and Solutions Engineering teams help enterprises deploy, optimize, and scale digital signage through expert setup, integrations, and custom development.</p>
+                    <a href="#" class="support-link">More On Professional Services &rarr;</a>
+                </div>
+            </div>
+
+            <div class="support-actions">
+                <a href="pricing.html" class="btn btn-primary">Get Started</a>
+                <a href="#" style="color: #fff; font-weight: 600;">More About Support &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Logo -->
+                <div>
+                    <a href="index.html" class="logo" style="margin-bottom: 0.5rem; display: inline-flex; color: var(--text-dark);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="4" width="20" height="14" rx="2" fill="#FECF00"/>
+                            <path d="M8 22H16" stroke="#FECF00" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M12 18V22" stroke="#FECF00" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                        <span style="font-size: 1.1rem; margin-left: 0.25rem;">Smart App</span>
+                    </a>
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.5rem;">&copy; 2026 Smart App - All rights reversed</p>
+                </div>
+
+                <!-- Column 2: Terms and Privacy -->
+                <div>
+                    <h4>Terms and Privacy</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Company -->
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        const tvData = [
+            {
+                tag: "TRAINING: 14 October, 1-4pm",
+                title: "On-Site Learning Lab:<br>Empowering Growth<br>and Excellence",
+                desc: "Designed to equip participants with the knowledge, skills, and mindset needed to excel in their roles, contribute meaningfully to their organizations.",
+                qrText: "Scan and<br>sign up<br>today!",
+                img: "assets/workers.jpg",
+                sidebarBg: "assets/industry-bg.jpg"
+            },
+            {
+                tag: "MENU HIGHLIGHT",
+                title: "Today's Chef Specials:<br>Freshly Prepared<br>Daily",
+                desc: "Explore our new seasonal menu full of hearty and healthy options for everyone. Made with locally sourced ingredients.",
+                qrText: "View Full<br>Menu<br>Online!",
+                img: "assets/food.jpg",
+                sidebarBg: "assets/cafeteria-bg.jpg"
+            },
+            {
+                tag: "FLASH SALE",
+                title: "Weekend Blowout:<br>Up to 50% Off<br>Select Items",
+                desc: "Don't miss out on our biggest sale of the season. Available in-store and online while supplies last.",
+                qrText: "Scan to<br>get your<br>coupon!",
+                img: "assets/retail.jpg",
+                sidebarBg: "assets/retail-bg.jpg"
+            },
+            {
+                tag: "UPCOMING EVENT",
+                title: "Annual Tech<br>Summit 2026",
+                desc: "Join industry leaders for three days of innovation, networking, and groundbreaking keynotes. Secure your spot today.",
+                qrText: "Register<br>Now<br>Here!",
+                img: "assets/event.jpg",
+                sidebarBg: "assets/event-bg.jpg"
+            },
+            {
+                tag: "GUEST SERVICES",
+                title: "Welcome to<br>Paradise Resort & Spa",
+                desc: "Relax and unwind with our award-winning spa treatments and world-class dining experiences designed for ultimate comfort.",
+                qrText: "Book Spa<br>Session<br>Today!",
+                img: "assets/resort.jpg",
+                sidebarBg: "assets/resort-bg.jpg"
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.industry-btn');
+
+            const tvContent = document.getElementById('tv-content');
+            const tvTag = document.getElementById('tv-tag');
+            const tvTitle = document.getElementById('tv-title');
+            const tvDesc = document.getElementById('tv-desc');
+            const tvQrText = document.getElementById('tv-qr-text');
+            const tvImg = document.getElementById('tv-img');
+            const sidebar = document.querySelector('.industry-sidebar');
+
+            function switchTab(index) {
+                // Remove active class
+                buttons.forEach(b => b.classList.remove('active'));
+
+                // Add active class
+                if (buttons[index]) buttons[index].classList.add('active');
+
+                // Fade out animation
+                tvContent.style.opacity = '0';
+                tvContent.style.transform = 'scale(0.98)';
+
+                setTimeout(() => {
+                    const data = tvData[index];
+                    if (data) {
+                        tvTag.innerHTML = data.tag;
+                        tvTitle.innerHTML = data.title;
+                        tvDesc.innerHTML = data.desc;
+                        tvQrText.innerHTML = data.qrText;
+                        tvImg.src = data.img;
+                        sidebar.style.backgroundImage = `linear-gradient(to right, rgba(20,20,25, 0.95) 0%, rgba(20,20,25, 0.6) 100%), url('${data.sidebarBg}')`;
+                    }
+                    
+                    // Fade in animation
+                    tvContent.style.opacity = '1';
+                    tvContent.style.transform = 'scale(1)';
+                }, 400); // transition duration
+            }
+
+            buttons.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const index = parseInt(btn.getAttribute('data-index'));
+                    switchTab(index);
+                });
+            });
+
+            // Hardware Section Logic
+            const hwData = [
+                {
+                    theme: "light",
+                    type: "img",
+                    price: "$65 - Per device",
+                    title: "Powerful signage,<br>PIXI sized player",
+                    desc: "Plug and play with our most affordable player - built on Android and powered by Smart app everywhere. Whether you're setting up your first screen or scaling across multiple locations, PIXI is ready to support your needs.",
+                    linkText: "More About PIXI &rarr;",
+                    img: "assets/pixi-shadow.avif",
+                    showSize: true,
+                    hideButton: false
+                },
+                {
+                    theme: "dark",
+                    type: "img",
+                    price: "$199 - Per device",
+                    title: "Secure by design.<br>Built for enterprise.",
+                    desc: "Built for performance in demanding environments, Smart app everywhere OS delivers top-tier performance at a fraction of the cost. It's up to three times more affordable than comparable enterprise media players.",
+                    linkText: "More About Smart app everywhere OS &rarr;",
+                    img: "assets/os-scr.webp",
+                    showSize: false,
+                    hideButton: false
+                },
+                {
+                    theme: "light-grey",
+                    type: "grid",
+                    price: "Already have your own hardware?",
+                    title: "We are hardware agnostic",
+                    desc: "Smart app everywhere works with all major devices, so you can deploy quickly and scale easily. Especially if you already have what you need to get your digital signage up and running.",
+                    linkText: "View All Hardware Options &rarr;",
+                    showSize: false,
+                    hideButton: true
+                }
+            ];
+
+            const hwButtons = document.querySelectorAll('.hardware-toggles .toggle-btn');
+            const hwSection = document.getElementById('hardware-section');
+            const hwPrice = document.getElementById('hw-price');
+            const hwTitle = document.getElementById('hw-title');
+            const hwDesc = document.getElementById('hw-desc');
+            const hwLink = document.getElementById('hw-link');
+            const hwImg = document.getElementById('hw-img');
+            const hwSize = document.getElementById('hw-size');
+
+            function switchHwTab(index) {
+                hwButtons.forEach(btn => btn.classList.remove('active'));
+                hwButtons[index].classList.add('active');
+                
+                const data = hwData[index];
+                if (!data) return;
+                
+                hwPrice.innerHTML = data.price;
+                hwTitle.innerHTML = data.title;
+                hwDesc.innerHTML = data.desc;
+                hwLink.innerHTML = data.linkText;
+                
+                if(data.hideButton) {
+                    document.querySelector('.hardware-actions .btn-primary').style.display = 'none';
+                } else {
+                    document.querySelector('.hardware-actions .btn-primary').style.display = 'inline-block';
+                }
+                
+                if (data.type === 'grid') {
+                    hwImg.style.display = 'none';
+                    document.getElementById('hw-grid').style.display = 'grid';
+                } else {
+                    hwImg.style.display = 'block';
+                    document.getElementById('hw-grid').style.display = 'none';
+                    hwImg.style.opacity = 0;
+                    setTimeout(() => {
+                        hwImg.src = data.img;
+                        hwImg.style.opacity = 1;
+                    }, 200);
+                }
+                
+                if(data.showSize) {
+                    hwSize.style.display = 'flex';
+                } else {
+                    hwSize.style.display = 'none';
+                }
+                
+                hwSection.className = 'hardware-section';
+                if(data.theme === 'dark') {
+                    hwSection.classList.add('dark-theme');
+                } else if(data.theme === 'light-grey') {
+                    hwSection.classList.add('light-grey-theme');
+                }
+            }
+
+            hwButtons.forEach((btn, i) => {
+                btn.addEventListener('click', () => switchHwTab(i));
+            });
+
+        });
+    </script>
+</body>
+
+</html>
