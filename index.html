@@ -26,16 +26,24 @@
                 Smart App
             </a>
 
-            <ul class="nav-links">
-                <li><a href="#">Product</a></li>
-                <li><a href="#">Solutions</a></li>
-                <li><a href="#">Pricing</a></li>
-            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-            <div class="nav-actions">
-                <a href="#" class="login-pill">Login &rarr;</a>
-                <a href="#" class="btn btn-secondary">Contact Sales</a>
-                <a href="#" class="btn btn-primary">Get Started</a>
+            <div class="navbar-menu" id="navbar-menu">
+                <ul class="nav-links">
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="#" class="login-pill">Login &rarr;</a>
+                    <a href="#" class="btn btn-secondary">Contact Sales</a>
+                    <a href="#" class="btn btn-primary">Get Started</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -450,6 +458,16 @@
             hwButtons.forEach((btn, i) => {
                 btn.addEventListener('click', () => switchHwTab(i));
             });
+
+            // Mobile Menu Logic
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const navMenu = document.getElementById('navbar-menu');
+            if (mobileBtn && navMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileBtn.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
 
         });
     </script>
