@@ -3,48 +3,365 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing – Smart App</title>
+    <title>Pricing – Smart App Digital Signage</title>
+    <meta name="description" content="Simple, transparent pricing for Smart App digital signage software. Choose from Core, Pro, or Enterprise plans.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <style>
+        /* ── Pricing Page Styles ───────────────────────────── */
+
+        /* Hero */
+        .pricing-hero {
+            background: linear-gradient(135deg, #2F0B5A 0%, #551D98 50%, #3B1C7C 100%);
+            padding: 7rem 0 5rem;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .pricing-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 60% 40%, rgba(123,97,255,0.35) 0%, transparent 65%),
+                        radial-gradient(ellipse at 20% 80%, rgba(254,207,0,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .pricing-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .pricing-hero p {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        /* Billing Toggle */
+        .billing-toggle-wrap {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255,255,255,0.12);
+            border-radius: 50px;
+            padding: 0.4rem;
+            gap: 0;
+            position: relative;
+        }
+        .billing-btn {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.65);
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.55rem 1.4rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .billing-btn.active {
+            background: #fff;
+            color: #19191B;
+        }
+        .billing-save-badge {
+            background: #FECF00;
+            color: #19191B;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.55rem;
+            border-radius: 50px;
+            margin-left: 0.4rem;
+        }
+
+        /* Pricing Cards Section */
+        .pricing-cards-section {
+            background: #F6F8FB;
+            padding: 4rem 0 5rem;
+        }
+        .pricing-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            align-items: stretch;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
         .pricing-card {
             background: #fff;
-            border-radius: 16px;
-            padding: 3rem 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.05);
-            text-align: center;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            border: 1.5px solid rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .pricing-card.popular {
-            border: 2px solid var(--primary-color);
-            transform: scale(1.05);
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
         }
-        .price {
-            font-size: 3rem;
+        .pricing-card.featured {
+            border-color: #551D98;
+            box-shadow: 0 8px 40px rgba(85,29,152,0.18);
+        }
+        .popular-badge {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: #19191B;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.3rem 0.75rem;
+            border-radius: 50px;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+        .plan-name {
+            font-size: 1.3rem;
             font-weight: 800;
-            color: var(--text-dark);
-            margin: 1rem 0;
+            color: #19191B;
+            margin-bottom: 0.35rem;
         }
-        .price span {
-            font-size: 1rem;
-            color: var(--text-muted);
-            font-weight: 500;
+        .plan-desc {
+            font-size: 0.85rem;
+            color: #6B7280;
+            line-height: 1.5;
+            margin-bottom: 1.75rem;
         }
-        .pricing-features {
-            text-align: left;
-            margin: 2rem 0;
+        .plan-price {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #19191B;
+            line-height: 1;
+            margin-bottom: 0.3rem;
         }
-        .pricing-features li {
+        .plan-price sup {
+            font-size: 1.3rem;
+            font-weight: 700;
+            vertical-align: top;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+        .plan-price-note {
+            font-size: 0.8rem;
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+        }
+        .plan-price-alt {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #19191B;
+            margin-bottom: 0.3rem;
+        }
+        .plan-contact {
+            font-size: 0.85rem;
+            color: #551D98;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .card-cta {
+            display: block;
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        .card-cta.yellow {
+            background: #FECF00;
+            color: #19191B;
+        }
+        .card-cta.yellow:hover { background: #E5BA00; transform: translateY(-2px); }
+        .card-cta.dark {
+            background: #19191B;
+            color: #fff;
+        }
+        .card-cta.dark:hover { background: #333; transform: translateY(-2px); }
+
+        .card-divider {
+            border: none;
+            border-top: 1px solid #F0F0F5;
+            margin-bottom: 1.5rem;
+        }
+        .card-includes-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #9CA3AF;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 1rem;
+        }
+        .card-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+        }
+        .card-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.875rem;
+            color: #374151;
             margin-bottom: 0.75rem;
-            color: var(--text-muted);
+            line-height: 1.4;
+        }
+        .card-features li::before {
+            content: '✓';
+            color: #551D98;
+            font-weight: 800;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            margin-top: 0.05rem;
+        }
+
+        /* Feature Comparison */
+        .compare-section {
+            background: #fff;
+            padding: 5rem 0;
+        }
+        .compare-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 3.5rem;
+            letter-spacing: -0.02em;
+        }
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .compare-table th {
+            padding: 1rem 1.5rem;
+            text-align: center;
+            font-weight: 700;
+            color: #19191B;
+            border-bottom: 2px solid #F0F0F5;
+        }
+        .compare-table th:first-child { text-align: left; }
+        .compare-table td {
+            padding: 0.9rem 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid #F6F8FB;
+            color: #374151;
+        }
+        .compare-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+            color: #19191B;
+        }
+        .compare-table tr:hover td { background: #FAFBFF; }
+        .compare-table .section-header td {
+            background: #F6F8FB;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #6B7280;
+            padding: 0.75rem 1.5rem;
+        }
+        .check { color: #551D98; font-weight: 800; font-size: 1rem; }
+        .dash { color: #D1D5DB; font-weight: 400; }
+
+        /* FAQ */
+        .faq-section {
+            background: #F6F8FB;
+            padding: 5rem 0;
+        }
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.75rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+        .faq-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: #19191B;
+        }
+        .faq-item p {
+            font-size: 0.875rem;
+            color: #6B7280;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, #2F0B5A 0%, #551D98 100%);
+            padding: 5rem 0;
+            text-align: center;
+            color: #fff;
+        }
+        .cta-banner h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .cta-banner p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+        }
+        .cta-banner-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Footer (same as index) */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .pricing-cards-grid { grid-template-columns: 1fr; max-width: 420px; }
+            .pricing-hero h1 { font-size: 2.2rem; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .compare-table { font-size: 0.8rem; }
+            .compare-table th, .compare-table td { padding: 0.75rem 0.75rem; }
+            .cta-banner h2 { font-size: 1.8rem; }
+            .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar" style="background: var(--text-dark); position: relative;">
+    <nav class="navbar" style="background: #1A0A30; position: relative;">
         <div class="container">
             <a href="index.html" class="logo">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,62 +371,207 @@
                 </svg>
                 Smart App
             </a>
-            
-            <ul class="nav-links">
-                <li><a href="product.html">Product</a></li>
-                <li><a href="solutions.html">Solutions</a></li>
-                <li><a href="pricing.html" style="background: rgba(255,255,255,0.15);">Pricing</a></li>
-            </ul>
 
-            <div class="nav-actions">
-                <a href="login.html" class="login-pill">Login &rarr;</a>
-                <a href="contact.html" class="btn btn-secondary">Contact Sales</a>
-                <a href="pricing.html" class="btn btn-primary">Get Started</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" id="mobile-menu-btn">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="navbar-menu" id="navbar-menu">
+                <ul class="nav-links">
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="pricing.html" style="background: rgba(255,255,255,0.15);">Pricing</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="#" class="login-pill">Login &rarr;</a>
+                    <a href="#" class="btn btn-secondary">Contact Sales</a>
+                    <a href="#" class="btn btn-primary">Get Started</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Header Section -->
-    <section class="section section-light" style="text-align: center; padding-top: 4rem;">
+    <!-- Hero -->
+    <section class="pricing-hero">
         <div class="container">
-            <h1>Simple, transparent pricing</h1>
-            <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-muted);">Start with our 14-day free trial. No credit card required.</p>
+            <h1>Choose your perfect plan</h1>
+            <p>Start with a 14-day free trial. No credit card required.</p>
+
+            <!-- Billing Toggle -->
+            <div class="billing-toggle-wrap">
+                <button class="billing-btn active" id="btn-annual" onclick="setBilling('annual')">
+                    Annual <span class="billing-save-badge">Save 17%</span>
+                </button>
+                <button class="billing-btn" id="btn-monthly" onclick="setBilling('monthly')">Monthly</button>
+            </div>
         </div>
     </section>
 
-    <!-- Pricing Blocks -->
-    <section class="section section-light" style="padding-top: 0;">
+    <!-- Pricing Cards -->
+    <section class="pricing-cards-section">
         <div class="container">
-            <div class="grid-2">
-                
+            <div class="pricing-cards-grid">
+
+                <!-- Core -->
                 <div class="pricing-card">
-                    <h3 style="color: var(--text-dark); font-size: 1.5rem;">Core</h3>
-                    <p style="color: var(--text-muted); font-size: 0.875rem;">For small teams</p>
-                    <div class="price">$20 <span>/ screen / mo</span></div>
-                    <a href="login.html" class="btn btn-outline" style="border-color: #ccc; color: var(--text-dark); display: block;">Start Free Trial</a>
-                    
-                    <ul class="pricing-features">
-                        <li>&#10003; 100+ Free Apps</li>
-                        <li>&#10003; Standard Support</li>
-                        <li>&#10003; 1GB Storage</li>
+                    <div class="plan-name">Core</div>
+                    <div class="plan-desc">Best for businesses getting started with digital signage.</div>
+                    <div class="plan-price">
+                        <sup>$</sup><span id="core-price">20</span>
+                    </div>
+                    <div class="plan-price-note" id="core-note">per screen / mo, billed annually</div>
+                    <a href="#" class="card-cta yellow">Free Trial</a>
+                    <hr class="card-divider">
+                    <div class="card-includes-label">What's included</div>
+                    <ul class="card-features">
+                        <li>Unlimited playlists &amp; scheduling</li>
+                        <li>100+ free apps &amp; integrations</li>
+                        <li>Standard support (6hr response)</li>
+                        <li>1 GB media storage per screen</li>
+                        <li>Multi-user access</li>
+                        <li>Channel &amp; playlist permissions</li>
                     </ul>
                 </div>
 
-                <div class="pricing-card popular">
-                    <span class="badge">Most Popular</span>
-                    <h3 style="color: var(--text-dark); font-size: 1.5rem;">Enterprise</h3>
-                    <p style="color: var(--text-muted); font-size: 0.875rem;">For scaling organizations</p>
-                    <div class="price">Custom</div>
-                    <a href="contact.html" class="btn btn-primary" style="display: block;">Contact Sales</a>
-                    
-                    <ul class="pricing-features">
-                        <li>&#10003; Everything in Core</li>
-                        <li>&#10003; SSO & Role-based access</li>
-                        <li>&#10003; Premium Support</li>
-                        <li>&#10003; Unlimited Storage</li>
+                <!-- Pro (Featured) -->
+                <div class="pricing-card featured">
+                    <span class="popular-badge">Most Popular</span>
+                    <div class="plan-name">Pro</div>
+                    <div class="plan-desc">Ideal if you need advanced analytics and content for your business.</div>
+                    <div class="plan-price">
+                        <sup>$</sup><span id="pro-price">30</span>
+                    </div>
+                    <div class="plan-price-note" id="pro-note">per screen / mo, billed annually</div>
+                    <a href="#" class="card-cta yellow">Free Trial</a>
+                    <hr class="card-divider">
+                    <div class="card-includes-label">Everything in Core, plus</div>
+                    <ul class="card-features">
+                        <li>Advanced screen analytics</li>
+                        <li>Priority scheduling &amp; playlists</li>
+                        <li>Premium apps &amp; integrations</li>
+                        <li>10 GB media storage per screen</li>
+                        <li>Role-based user permissions</li>
+                        <li>Priority support (1hr response)</li>
+                        <li>Custom branding</li>
                     </ul>
                 </div>
 
+                <!-- Enterprise -->
+                <div class="pricing-card">
+                    <div class="plan-name">Enterprise</div>
+                    <div class="plan-desc">For large organizations needing full control, security, and scale.</div>
+                    <div class="plan-price-alt">Custom</div>
+                    <div class="plan-contact">📞 +1 888 557 5328</div>
+                    <a href="#" class="card-cta dark">Talk to Sales</a>
+                    <hr class="card-divider">
+                    <div class="card-includes-label">Everything in Pro, plus</div>
+                    <ul class="card-features">
+                        <li>SSO &amp; SAML authentication</li>
+                        <li>Dedicated account manager</li>
+                        <li>SLA &amp; uptime guarantees</li>
+                        <li>Unlimited media storage</li>
+                        <li>Custom integrations &amp; API access</li>
+                        <li>24/5 phone &amp; WhatsApp support</li>
+                        <li>Professional onboarding services</li>
+                        <li>Advanced security &amp; compliance</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Comparison Table -->
+    <section class="compare-section">
+        <div class="container">
+            <h2>Compare all features</h2>
+            <div style="overflow-x: auto;">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40%">Feature</th>
+                            <th>Core</th>
+                            <th>Pro</th>
+                            <th>Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="section-header"><td colspan="4">Screen Management</td></tr>
+                        <tr><td>Unlimited screens</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr><td>Playlists &amp; Scheduling</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr><td>Screen grouping &amp; tagging</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr><td>Advanced screen analytics</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr><td>Remote Device Management (RDM)</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+
+                        <tr class="section-header"><td colspan="4">User Permissions</td></tr>
+                        <tr><td>Multi-user access</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr><td>Role-based permissions</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr><td>SSO / SAML</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+                        <tr><td>Custom user roles</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+
+                        <tr class="section-header"><td colspan="4">Apps &amp; Integrations</td></tr>
+                        <tr><td>Free apps (100+)</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr><td>Premium apps</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr><td>API access</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+                        <tr><td>Custom integrations</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+
+                        <tr class="section-header"><td colspan="4">Storage &amp; Media</td></tr>
+                        <tr><td>Media storage</td><td>1 GB / screen</td><td>10 GB / screen</td><td>Unlimited</td></tr>
+                        <tr><td>Custom branding</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+
+                        <tr class="section-header"><td colspan="4">Support</td></tr>
+                        <tr><td>Live chat support</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr><td>Email support</td><td>6hr response</td><td>1hr response</td><td>Priority</td></tr>
+                        <tr><td>Phone &amp; WhatsApp support</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+                        <tr><td>Dedicated account manager</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+                        <tr><td>SLA guarantee</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Frequently asked questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>Is there a free trial?</h4>
+                    <p>Yes! All Core and Pro plans come with a 14-day free trial. No credit card required to get started.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I change plans later?</h4>
+                    <p>Absolutely. You can upgrade or downgrade your plan at any time from your account dashboard.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What counts as a "screen"?</h4>
+                    <p>A screen is any display device (TV, monitor, tablet) running the Smart App player. Pricing is per active screen per month.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What hardware do I need?</h4>
+                    <p>Smart App works with our PIXI player, Smart App OS, or any Android, ChromeOS, Windows, or macOS device. We're hardware agnostic.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do you offer discounts for large deployments?</h4>
+                    <p>Yes. Contact our sales team for volume pricing on 50+ screens. Enterprise plans are fully customised to your needs.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How does annual billing work?</h4>
+                    <p>Annual plans are billed once per year and save you up to 17% compared to monthly billing. You can add screens at any time pro-rated.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2>Ready to get started?</h2>
+            <p>Try Smart App free for 14 days. No credit card required.</p>
+            <div class="cta-banner-btns">
+                <a href="#" class="btn btn-primary" style="padding: 0.9rem 2.2rem; font-size: 1rem;">Start Free Trial</a>
+                <a href="#" class="btn btn-secondary" style="padding: 0.9rem 2.2rem; font-size: 1rem;">Talk to Sales</a>
             </div>
         </div>
     </section>
@@ -117,14 +579,62 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-bottom" style="border-top: none;">
-                <p>&copy; 2026 Smart App - All rights reversed</p>
-                <div style="display: flex; gap: 1rem;">
-                    <a href="index.html">Back to Home</a>
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="logo" style="margin-bottom: 0.5rem; display: inline-flex; color: var(--text-dark);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="4" width="20" height="14" rx="2" fill="#FECF00"/>
+                            <path d="M8 22H16" stroke="#FECF00" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M12 18V22" stroke="#FECF00" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                        <span style="font-size: 1.1rem; margin-left: 0.25rem;">Smart App</span>
+                    </a>
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">&copy; 2026 Smart App - All rights reserved</p>
+                </div>
+                <div>
+                    <h4>Terms and Privacy</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </footer>
 
+    <script>
+        // Billing toggle
+        const prices = {
+            annual:  { core: '20', pro: '30', coreNote: 'per screen / mo, billed annually',  proNote: 'per screen / mo, billed annually' },
+            monthly: { core: '24', pro: '36', coreNote: 'per screen / mo, billed monthly',   proNote: 'per screen / mo, billed monthly' }
+        };
+
+        function setBilling(type) {
+            const p = prices[type];
+            document.getElementById('core-price').textContent = p.core;
+            document.getElementById('pro-price').textContent  = p.pro;
+            document.getElementById('core-note').textContent  = p.coreNote;
+            document.getElementById('pro-note').textContent   = p.proNote;
+            document.getElementById('btn-annual').classList.toggle('active', type === 'annual');
+            document.getElementById('btn-monthly').classList.toggle('active', type === 'monthly');
+        }
+
+        // Mobile menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const navMenu   = document.getElementById('navbar-menu');
+        if (mobileBtn && navMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileBtn.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 </html>
