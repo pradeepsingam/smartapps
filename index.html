@@ -50,7 +50,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
+    <header class="hero slider-section">
         <div class="hero-video-wrap">
             <img src="assets/bg_hero.jpg" alt="Hero Background" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
@@ -73,7 +73,7 @@
 
 
     <!-- Industry Section -->
-    <section class="industry-section">
+    <section class="industry-section slider-section">
         <div class="industry-sidebar">
             <h2>Better screens for<br>every industry</h2>
             <ul class="industry-list" id="industry-tabs">
@@ -110,7 +110,7 @@
     </section>
 
     <!-- Hardware Section -->
-    <section class="hardware-section" id="hardware-section">
+    <section class="hardware-section slider-section" id="hardware-section">
         <div class="container hardware-header">
             <h2>Hardware built for digital signage</h2>
             <p>Smart app everywhere works with a wide range of hardware options, but our own devices are built for digital signage. They're simple to deploy, more secure, and powered by advanced RDM features.</p>
@@ -169,7 +169,7 @@
     </section>
 
     <!-- RDM Section -->
-    <section class="rdm-section">
+    <section class="rdm-section slider-section">
         <div class="rdm-background"></div>
         <div class="container rdm-container">
             <div class="rdm-content">
@@ -188,7 +188,7 @@
     </section>
 
     <!-- Support Section -->
-    <section class="support-section">
+    <section class="support-section slider-section">
         <div class="container">
             <h2>Support & Professional Services</h2>
             <p class="subtitle">All our plans include support from a dedicated team to help you get the most out of our products. gain access to experts who guide onboarding, share best practices, and help you achieve your goals.</p>
@@ -236,6 +236,15 @@
             </div>
         </div>
     </section>
+
+    <!-- Scroll Dot Navigation -->
+    <div class="scroll-dots" id="scroll-dots">
+        <button class="scroll-dot active" data-index="0" aria-label="Section 1" data-label="Home"></button>
+        <button class="scroll-dot" data-index="1" aria-label="Section 2" data-label="Industries"></button>
+        <button class="scroll-dot" data-index="2" aria-label="Section 3" data-label="Hardware"></button>
+        <button class="scroll-dot" data-index="3" aria-label="Section 4" data-label="Remote Device Management"></button>
+        <button class="scroll-dot" data-index="4" aria-label="Section 5" data-label="Support"></button>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -471,6 +480,151 @@
             }
 
         });
+    </script>
+
+    <!-- Fullpage Scroll Engine -->
+    <script>
+    (function () {
+        var sections = Array.from(document.querySelectorAll('.slider-section'));
+        var footer   = document.querySelector('.footer');
+        var dotsEl   = document.getElementById('scroll-dots');
+        var dotBtns  = dotsEl ? Array.from(dotsEl.querySelectorAll('.scroll-dot')) : [];
+        if (!sections.length) return;
+
+        var currentIndex = 0;
+        var isAnimating  = false;
+        var snapMode     = true;
+        var THROTTLE     = 800;
+
+        // ── dot helpers ───────────────────────────────────────
+        function updateDots(index) {
+            dotBtns.forEach(function(d, i) {
+                d.classList.toggle('active', i === index);
+            });
+        }
+
+        function showDots() {
+            if (dotsEl) dotsEl.classList.remove('hidden');
+        }
+
+        function hideDots() {
+            if (dotsEl) dotsEl.classList.add('hidden');
+        }
+
+        // dot click → jump to section
+        dotBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var idx = parseInt(btn.getAttribute('data-index'));
+                if (!isNaN(idx)) {
+                    snapMode = true;
+                    showDots();
+                    scrollToSection(idx);
+                }
+            });
+        });
+
+        // ── scroll helpers ────────────────────────────────────
+        function getSectionTop(index) {
+            return sections[index].getBoundingClientRect().top + window.scrollY;
+        }
+
+        function scrollToSection(index) {
+            if (isAnimating) return;
+            isAnimating  = true;
+            currentIndex = index;
+            updateDots(index);
+            window.scrollTo({ top: getSectionTop(index), behavior: 'smooth' });
+            setTimeout(function() { isAnimating = false; }, THROTTLE);
+        }
+
+        function enterFooter() {
+            if (isAnimating) return;
+            snapMode    = false;
+            isAnimating = true;
+            hideDots();
+            var footerTop = footer.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({ top: footerTop, behavior: 'smooth' });
+            setTimeout(function() { isAnimating = false; }, THROTTLE);
+        }
+
+        function backToLastSection() {
+            snapMode = true;
+            showDots();
+            scrollToSection(sections.length - 1);
+        }
+
+        // ── Mouse Wheel ───────────────────────────────────────
+        document.addEventListener('wheel', function (e) {
+            if (!snapMode) {
+                var footerTop = footer.getBoundingClientRect().top + window.scrollY;
+                if (e.deltaY < 0 && window.scrollY <= footerTop + 5) {
+                    e.preventDefault();
+                    if (!isAnimating) backToLastSection();
+                }
+                return;
+            }
+            e.preventDefault();
+            if (isAnimating) return;
+            if (e.deltaY > 0) {
+                if (currentIndex < sections.length - 1) scrollToSection(currentIndex + 1);
+                else enterFooter();
+            } else {
+                if (currentIndex > 0) scrollToSection(currentIndex - 1);
+            }
+        }, { passive: false });
+
+        // ── Keyboard ──────────────────────────────────────────
+        document.addEventListener('keydown', function (e) {
+            var down = e.key === 'ArrowDown' || e.key === 'PageDown';
+            var up   = e.key === 'ArrowUp'   || e.key === 'PageUp';
+            if (!down && !up) return;
+            if (!snapMode) {
+                var footerTop = footer.getBoundingClientRect().top + window.scrollY;
+                if (up && window.scrollY <= footerTop + 5) {
+                    e.preventDefault();
+                    if (!isAnimating) backToLastSection();
+                }
+                return;
+            }
+            e.preventDefault();
+            if (isAnimating) return;
+            if (down) {
+                if (currentIndex < sections.length - 1) scrollToSection(currentIndex + 1);
+                else enterFooter();
+            } else {
+                if (currentIndex > 0) scrollToSection(currentIndex - 1);
+            }
+        });
+
+        // ── Touch ─────────────────────────────────────────────
+        var touchStartY = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            var delta = touchStartY - e.changedTouches[0].clientY;
+            if (Math.abs(delta) < 40) return;
+            if (!snapMode) {
+                var footerTop = footer.getBoundingClientRect().top + window.scrollY;
+                if (delta < 0 && window.scrollY <= footerTop + 5) {
+                    if (!isAnimating) backToLastSection();
+                }
+                return;
+            }
+            if (isAnimating) return;
+            if (delta > 0) {
+                if (currentIndex < sections.length - 1) scrollToSection(currentIndex + 1);
+                else enterFooter();
+            } else {
+                if (currentIndex > 0) scrollToSection(currentIndex - 1);
+            }
+        }, { passive: true });
+
+        // ── Init ──────────────────────────────────────────────
+        window.scrollTo({ top: 0 });
+        updateDots(0);
+    })();
     </script>
 </body>
 
