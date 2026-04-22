@@ -605,11 +605,12 @@ p {
 
 /* Hardware Section */
 .hardware-section {
-  background: linear-gradient(135deg, #E2DEFC 0%, #F8F7FF 100%);
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('assets/bg-device.jpg') center/cover no-repeat;
   padding: 6rem 0;
   position: relative;
   overflow: hidden;
   text-align: center;
+  color: #fff;
 }
 
 .hardware-header {
@@ -622,14 +623,14 @@ p {
 .hardware-header h2 {
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--text-dark);
+  color: #fff;
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
 }
 
 .hardware-header p {
   font-size: 1.1rem;
-  color: #444;
+  color: #ddd;
   line-height: 1.6;
   margin-bottom: 2.5rem;
 }
@@ -718,7 +719,7 @@ p {
 }
 
 .hardware-visual img.device-img {
-  width: 135%;
+  width: 65%;
   max-width: 900px;
   margin-left: -25%;
   border-radius: 50px;
@@ -732,7 +733,7 @@ p {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  color: #666;
+  color: #ddd;
   font-size: 0.75rem;
   font-weight: 600;
   opacity: 0.8;
@@ -747,21 +748,21 @@ p {
 .hardware-content .price-tag {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #444;
+  color: #ddd;
   margin-bottom: 1rem;
 }
 
 .hardware-content h3 {
   font-size: 2.2rem;
   font-weight: 800;
-  color: var(--text-dark);
+  color: #fff;
   line-height: 1.15;
   margin-bottom: 1.5rem;
 }
 
 .hardware-content p.desc {
   font-size: 0.95rem;
-  color: #555;
+  color: #ddd;
   line-height: 1.6;
   margin-bottom: 2rem;
 }
@@ -781,7 +782,7 @@ p {
 .hardware-actions .link-more {
   font-weight: 700;
   font-size: 0.9rem;
-  color: var(--text-dark);
+  color: #fff;
   transition: transform 0.3s ease;
 }
 
@@ -790,39 +791,17 @@ p {
 }
 
 .hardware-section {
-  transition: background 0.4s ease, color 0.4s ease;
+  transition: opacity 0.4s ease, color 0.4s ease;
 }
 
 .hardware-visual img.device-img {
   transition: opacity 0.3s ease;
 }
 
+/* Removed theme background colors because we use a static background image */
+.hardware-section.light-grey-theme,
 .hardware-section.dark-theme {
-  background: linear-gradient(135deg, #1A1A1F 0%, #111114 100%);
-}
-
-.hardware-section.light-grey-theme {
-  background: #F3F4F6;
-}
-
-.hardware-section.dark-theme .hardware-header h2,
-.hardware-section.dark-theme .hardware-content h3 {
-  color: #fff;
-}
-
-.hardware-section.dark-theme .hardware-header p,
-.hardware-section.dark-theme .hardware-content p.desc,
-.hardware-section.dark-theme .hardware-content .price-tag,
-.hardware-section.dark-theme .size-comparison {
-  color: #ddd;
-}
-
-.hardware-section.dark-theme .hardware-actions .link-more {
-  color: #fff;
-}
-
-.hardware-section.dark-theme .toggle-btn:not(.active) {
-  background: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('assets/bg-device.jpg') center/cover no-repeat;
 }
 
 .hardware-grid {
