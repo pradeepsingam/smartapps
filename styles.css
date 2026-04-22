@@ -158,7 +158,7 @@ p {
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   gap: 0;
-  height: 46px;
+  height: 60px;
   box-sizing: border-box;
 }
 
@@ -187,6 +187,11 @@ p {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+}
+
+.navbar .nav-actions .btn,
+.navbar .nav-actions .login-pill {
+  height: 60px;
 }
 
 .login-pill {
@@ -237,7 +242,8 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Dark shade overlay */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Dark shade overlay */
   z-index: 1;
 }
 
@@ -334,7 +340,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(to right, rgba(20, 20, 25, 0.95) 0%, rgba(20, 20, 25, 0.6) 100%), url('assets/industry-bg.jpg') center/cover no-repeat;
+  background: linear-gradient(to right, rgba(20, 20, 25, 0.95) 0%, rgba(20, 20, 25, 0.6) 100%), url('assets/cafeteria-bg.jpg') center/cover no-repeat;
   color: var(--text-light);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 10;
@@ -401,7 +407,7 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url('assets/concrete-bg.jpg') center/cover no-repeat;
+  background: url('assets/cafeteria-bg.jpg') center/cover no-repeat;
 }
 
 .industry-main::before {

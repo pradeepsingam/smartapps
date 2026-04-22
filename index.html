@@ -326,6 +326,7 @@
             const tvQrText = document.getElementById('tv-qr-text');
             const tvImg = document.getElementById('tv-img');
             const sidebar = document.querySelector('.industry-sidebar');
+            const industryMain = document.querySelector('.industry-main');
 
             function switchTab(index) {
                 // Remove active class
@@ -347,6 +348,7 @@
                         tvQrText.innerHTML = data.qrText;
                         tvImg.src = data.img;
                         sidebar.style.backgroundImage = `linear-gradient(to right, rgba(20,20,25, 0.95) 0%, rgba(20,20,25, 0.6) 100%), url('${data.sidebarBg}')`;
+                        industryMain.style.backgroundImage = `url('${data.sidebarBg}')`;
                     }
 
                     // Fade in animation
