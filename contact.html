@@ -13,6 +13,7 @@
             padding: 3rem;
             border-radius: 16px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            color: var(--text-dark);
         }
         .form-group { text-align: left; margin-bottom: 1.5rem; }
         .form-group label { display: block; font-weight: 500; font-size: 0.875rem; margin-bottom: 0.5rem; }
@@ -46,19 +47,19 @@
     </nav>
 
     <!-- Contact Section -->
-    <section class="section section-light contact-section">
+    <section class="section contact-section" style="background-color: #0b2b80; color: #ffffff;">
         <div class="container">
             <div class="grid-2">
-                <div>
-                    <h1>Talk to our sales team</h1>
-                    <p style="color: var(--text-muted); font-size: 1.25rem;">Learn how Smart Digi can help your organization communicate better with screens.</p>
+                <div class="contact-text" style="padding-top: 2rem;">
+                    <h1 style="color: #ffffff;">Talk to our sales team</h1>
+                    <p style="color: rgba(255,255,255,0.85); font-size: 1.25rem;">Learn how Smart Digi can help your organization communicate better with screens.</p>
                     
                     <div style="margin-top: 3rem;">
-                        <h4 style="margin-bottom: 1rem;">What happens next?</h4>
-                        <ul style="color: var(--text-muted);">
-                            <li style="margin-bottom: 1rem;">&#10003; A brief conversation to discuss your goals</li>
-                            <li style="margin-bottom: 1rem;">&#10003; A live demonstration of the platform</li>
-                            <li style="margin-bottom: 1rem;">&#10003; Custom pricing and hardware advice</li>
+                        <h4 style="margin-bottom: 1rem; color: #ffffff;">What happens next?</h4>
+                        <ul style="list-style: none; color: rgba(255,255,255,0.85);">
+                            <li style="margin-bottom: 1rem; display: flex; gap: 0.5rem;"><span>&#10003;</span> A brief conversation to discuss your goals</li>
+                            <li style="margin-bottom: 1rem; display: flex; gap: 0.5rem;"><span>&#10003;</span> A live demonstration of the platform</li>
+                            <li style="margin-bottom: 1rem; display: flex; gap: 0.5rem;"><span>&#10003;</span> Custom pricing and hardware advice</li>
                         </ul>
                     </div>
                 </div>
@@ -66,36 +67,31 @@
                 <div class="form-card">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                         <div class="form-group">
-                            <label>First Name</label>
+                            <label>Fornavn</label>
                             <input type="text">
                         </div>
                         <div class="form-group">
-                            <label>Last Name</label>
+                            <label>Etternavn</label>
                             <input type="text">
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label>Work Email</label>
+                        <label>Email</label>
                         <input type="email">
                     </div>
                     
                     <div class="form-group">
-                        <label>Company Size</label>
-                        <select>
-                            <option>1-50 employees</option>
-                            <option>51-200 employees</option>
-                            <option>201-1000 employees</option>
-                            <option>1000+ employees</option>
-                        </select>
+                        <label>Mobil</label>
+                        <input type="tel">
                     </div>
 
                     <div class="form-group">
-                        <label>How can we help?</label>
-                        <textarea placeholder="Tell us about your project..."></textarea>
+                        <label>Hvordan kan vi hjelpe deg?</label>
+                        <textarea placeholder="Fortell oss om prosjektet ditt..."></textarea>
                     </div>
 
-                    <button class="btn btn-primary" style="width: 100%;">Submit Request</button>
+                    <button class="btn btn-primary" style="width: 100%;">Send inn forespørsel</button>
                 </div>
             </div>
         </div>
