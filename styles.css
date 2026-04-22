@@ -613,7 +613,7 @@ p {
 /* Hardware Section */
 .hardware-section {
   background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('assets/bg-device.jpg') center/cover no-repeat;
-  padding: 6rem 0;
+  padding: 10rem 0 6rem;
   position: relative;
   overflow: hidden;
   text-align: center;
