@@ -1102,38 +1102,86 @@ p {
 
 /* Footer */
 .footer {
-  background-color: var(--text-light);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFAFC 100%);
   color: var(--text-dark);
-  padding: 4rem 0 2rem;
-  border-top: 1px solid #e5e7eb;
+  padding: 5rem 0 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 900px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(123, 97, 255, 0.4), transparent);
 }
 
 .footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  text-align: center;
+  gap: 6rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 2;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #888;
+  letter-spacing: 0.02em;
+  margin: 0;
 }
 
 .footer h4 {
-  font-size: 0.9rem;
-  margin-bottom: 1.25rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
   color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.9;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer ul li {
-  margin-bottom: 0.75rem;
-  font-size: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .footer ul a {
   color: var(--text-muted);
-  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
 }
 
 .footer ul a:hover {
-  color: var(--text-dark);
+  color: #7b61ff;
+  transform: translateY(-2px);
 }
 
 
@@ -1291,10 +1339,14 @@ p {
   /* Structural Stacks */
   .hero-grid,
   .grid-2,
-  .footer-grid,
   .support-cards,
   .hardware-grid {
     grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    flex-direction: column;
+    gap: 2.5rem;
   }
 
   .hardware-grid {
