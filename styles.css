@@ -70,15 +70,20 @@ p {
 }
 
 .btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+  height: 46px;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
   cursor: pointer;
   border: none;
   text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .btn-primary {
@@ -92,12 +97,15 @@ p {
 }
 
 .btn-secondary {
-  background-color: var(--text-light);
-  color: var(--text-dark);
+  background-color: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-light);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .btn-secondary:hover {
-  background-color: #E5E7EB;
+  background-color: rgba(255, 255, 255, 0.28);
   transform: translateY(-2px);
 }
 
@@ -142,12 +150,16 @@ p {
 
 .nav-links {
   display: flex;
-  background: var(--nav-bg);
-  backdrop-filter: var(--nav-backdrop);
-  -webkit-backdrop-filter: var(--nav-backdrop);
-  padding: 0.5rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.35rem 0.5rem;
   border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  gap: 0;
+  height: 46px;
+  box-sizing: border-box;
 }
 
 .nav-links li {
@@ -157,36 +169,45 @@ p {
 .nav-links a {
   color: var(--text-light);
   font-weight: 500;
-  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  padding: 0.45rem 1.1rem;
   border-radius: 50px;
   transition: background 0.3s ease;
-  display: block;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  height: 100%;
 }
 
 .nav-links a:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .login-pill {
-  background: var(--nav-bg);
-  backdrop-filter: var(--nav-backdrop);
-  -webkit-backdrop-filter: var(--nav-backdrop);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: var(--text-light);
-  padding: 0.5rem 1.5rem;
+  padding: 0 1.5rem;
   border-radius: 50px;
   font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   transition: all 0.3s ease;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .login-pill:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.28);
 }
 
 /* Hero Section */
