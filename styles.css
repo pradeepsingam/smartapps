@@ -335,9 +335,7 @@ p {
   display: flex;
   width: 100%;
   min-height: 800px;
-  background: #111;
-  background-size: cover;
-  background-position: center;
+  background: #111 url('assets/slide_bg/Restaurant_interior_with_202604231006.jpeg') center/cover no-repeat;
   transition: background-image 0.4s ease;
   position: relative;
 }
@@ -517,6 +515,277 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* TV Layout Designs */
+
+.tv-layout {
+  width: 100%;
+}
+
+/* [0] Menu Board */
+#tv-layout-0 .layout-menu-left {
+  width: 55%;
+  background: #191c21;
+  color: #fff;
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#tv-layout-0 .menu-cat {
+  color: #fecf00;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+#tv-layout-0 .menu-items {
+  margin-bottom: 2rem;
+}
+
+#tv-layout-0 .menu-items li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  border-bottom: 1px dotted rgba(255,255,255,0.15);
+}
+
+#tv-layout-0 .menu-qr {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#tv-layout-0 .menu-qr img {
+  width: 60px;
+  height: 60px;
+}
+
+#tv-layout-0 .layout-menu-right {
+  width: 45%;
+}
+
+#tv-layout-0 .layout-menu-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* [1] Flash Sale */
+.retail-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.layout-retail-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(220, 20, 60, 0.9) 0%, rgba(139, 0, 0, 0.8) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  clip-path: polygon(0 0, 65% 0, 100% 100%, 0% 100%);
+}
+
+.flash-title {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 0;
+}
+
+.flash-subtitle {
+  font-size: 3rem;
+  color: #fecf00;
+  margin-bottom: 1rem;
+}
+
+.layout-retail-overlay p {
+  font-size: 1.2rem;
+  max-width: 300px;
+}
+
+.flash-qr {
+  margin-top: 2rem;
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: #000;
+  font-weight: 700;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flash-qr img {
+  width: 80px;
+  margin-bottom: 0.25rem;
+}
+
+/* [2] Event Schedule */
+#tv-layout-2 .event-header {
+  background: #202b3c;
+  color: #fff;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#tv-layout-2 .event-header h3 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+#tv-layout-2 .live-clock {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #5ebae6;
+}
+
+#tv-layout-2 .event-body {
+  display: flex;
+  padding: 3rem;
+  gap: 3rem;
+  flex: 1;
+}
+
+#tv-layout-2 .event-schedule {
+  flex: 1;
+}
+
+#tv-layout-2 .schedule-title {
+  color: #3b82f6;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+#tv-layout-2 .session {
+  display: flex;
+  margin-bottom: 1.5rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+#tv-layout-2 .session .time {
+  font-weight: 800;
+  min-width: 90px;
+  color: #1f2937;
+}
+
+#tv-layout-2 .session-info strong {
+  display: block;
+  font-size: 1.2rem;
+  color: #111;
+  margin-bottom: 0.25rem;
+}
+
+#tv-layout-2 .session-info p {
+  margin: 0;
+  color: #6b7280;
+}
+
+#tv-layout-2 .event-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+#tv-layout-2 .event-qr img {
+  width: 120px;
+  margin-bottom: 1rem;
+}
+
+/* [3] Safety Warning */
+#tv-layout-3 .safety-left {
+  width: 45%;
+}
+
+#tv-layout-3 .safety-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#tv-layout-3 .safety-right {
+  width: 55%;
+  background: #314db3;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 4rem;
+}
+
+#tv-layout-3 .safety-right h2 {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+/* [4] Resort Welcome */
+.resort-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#tv-layout-4 .resort-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%, rgba(0,0,0,0.3) 100%);
+  color: #fff;
+}
+
+#tv-layout-4 .weather-widget {
+  align-self: flex-end;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.3);
+  text-align: right;
+}
+
+#tv-layout-4 .weather-widget .temp {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+#tv-layout-4 .welcome-banner h2 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  font-family: serif;
 }
 
 .industry-main-btn {

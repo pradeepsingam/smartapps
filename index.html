@@ -47,7 +47,8 @@
     <!-- Hero Section -->
     <header class="hero slider-section">
         <div class="hero-video-wrap">
-            <img src="assets/Top_Image.webp" alt="Hero Background" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="assets/Top_Image.webp" alt="Hero Background"
+                style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="container" style="position: relative; z-index: 10; width: 100%;">
             <div class="hero-content" style="max-width: 800px;">
@@ -80,21 +81,105 @@
             <div class="tv-screen">
                 <div class="tv-screen-bezel"></div>
                 <div class="tv-content-wrapper" id="tv-content"
-                    style="display: flex; width: 100%; height: 100%; transition: opacity 0.4s ease, transform 0.4s ease;">
-                    <div class="tv-left">
-                        <p class="tv-tag" id="tv-tag">MENU HIGHLIGHT</p>
-                        <h3 class="tv-title" id="tv-title">Today's Chef Specials:<br>Freshly Prepared<br>Daily
-                        </h3>
-                        <p class="tv-desc" id="tv-desc">Explore our new seasonal menu full of hearty and healthy options
-                            for everyone. Made with locally sourced ingredients.</p>
-                        <div class="tv-qr-box">
-                            <img src="assets/qr_code.png" alt="QR Code" class="tv-qr">
-                            <p class="tv-qr-text" id="tv-qr-text">View Full<br>Menu<br>Online!</p>
+                    style="position: relative; width: 100%; height: 100%; transition: opacity 0.4s ease, transform 0.4s ease;">
+
+                    <!-- [0] Restaurant & Cafe (Menu Board) -->
+                    <div class="tv-layout" id="tv-layout-0" style="display: flex; height: 100%;">
+                        <div class="layout-menu-left">
+                            <h4 class="menu-cat">Morning Specials</h4>
+                            <ul class="menu-items">
+                                <li><span>Avocado Toast</span> <span>Kr. 130</span></li>
+                                <li><span>Pancakes</span> <span>Kr. 150</span></li>
+                                <li><span>Oatmeal</span> <span>Kr. 120</span></li>
+                            </ul>
+                            <h4 class="menu-cat">Coffee & Espresso</h4>
+                            <ul class="menu-items">
+                                <li><span>Latte</span> <span>Kr. 60</span></li>
+                                <li><span>Cappuccino</span> <span>Kr. 60</span></li>
+                                <li><span>Cold Brew</span> <span>Kr. 65</span></li>
+                            </ul>
+                            <div class="menu-qr">
+                                <img src="assets/qr_code.png" alt="QR Code">
+                                <p>Order Ahead<br>Online!</p>
+                            </div>
+                        </div>
+                        <div class="layout-menu-right">
+                            <img src="assets/food.jpg" alt="Restaurant menu">
                         </div>
                     </div>
-                    <div class="tv-right">
-                        <img id="tv-img" src="assets/food.jpg" alt="Restaurant">
+
+                    <!-- [1] Retail campaigns (Flash Sale) -->
+                    <div class="tv-layout" id="tv-layout-1" style="display: none; height: 100%; position: relative;">
+                        <img src="assets/retail.jpg" alt="Retail" class="retail-bg">
+                        <div class="layout-retail-overlay">
+                            <h1 class="flash-subtitle">FLASH SALE</h1>
+                            <h2 class="flash-subtitle">50% OFF</h2>
+                            <p>Select items. In-store & Online.</p>
+                            <div class="flash-qr">
+                                <img src="assets/qr_code.png" alt="Scan coupon">
+                                <span>Scan for coupon</span>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- [2] Arrangementer (Events) -->
+                    <div class="tv-layout" id="tv-layout-2"
+                        style="display: none; height: 100%; background: #F1F4F9; flex-direction: column;">
+                        <div class="event-header">
+                            <h3>Annual Tech Summit 2026</h3>
+                            <span class="live-clock">10:45 AM</span>
+                        </div>
+                        <div class="event-body">
+                            <div class="event-schedule">
+                                <h4 class="schedule-title">Up Next in Hall A</h4>
+                                <div class="session">
+                                    <span class="time">11:00 AM</span>
+                                    <div class="session-info">
+                                        <strong>Keynote: Future of AI</strong>
+                                    </div>
+                                </div>
+                                <div class="session">
+                                    <span class="time">12:30 PM</span>
+                                    <div class="session-info">
+                                        <strong>Networking Lunch</strong>
+                                        <p>Main Dining Pavilion</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="event-qr">
+                                <img src="assets/qr_code.png" alt="QR Code">
+                                <p>Scan for full<br>agenda list</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- [3] Produksjon og Logistikk (Safety) -->
+                    <div class="tv-layout" id="tv-layout-3" style="display: none; height: 100%;">
+                        <div class="safety-left">
+                            <img src="assets/workers.jpg" alt="Workers">
+                        </div>
+                        <div class="safety-right">
+                            <h2>Protect Your Head &ndash;<br><span
+                                    style="font-weight: 400; font-size: 0.9em; display:block; margin-top:0.5rem; opacity: 0.9;">Always
+                                    Wear Your</span><strong style="color: #FFD700;">Hard Hat</strong> on the Job!</h2>
+                        </div>
+                    </div>
+
+                    <!-- [4] Hoteller & Feriesteder (Resort/Weather) -->
+                    <div class="tv-layout" id="tv-layout-4" style="display: none; height: 100%; position: relative;">
+                        <img src="assets/resort.jpg" alt="Resort" class="resort-bg">
+                        <div class="resort-overlay">
+                            <div class="weather-widget">
+                                <div class="temp">78&deg; <span class="sun">&#9728;</span></div>
+                                <p>Sunny & Clear</p>
+                            </div>
+                            <div class="welcome-banner">
+                                <h2>Welcome to Paradise</h2>
+                                <p>Enjoy your stay with us.</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -340,14 +425,21 @@
                 tvContent.style.transform = 'scale(0.98)';
 
                 setTimeout(() => {
+                    // Hide all layouts
+                    document.querySelectorAll('.tv-layout').forEach(l => {
+                        l.style.display = 'none';
+                    });
+
+                    // Show current layout
+                    const curLayout = document.getElementById('tv-layout-' + index);
+                    if (curLayout) {
+                        if (index === 0 || index === 2 || index === 3) curLayout.style.display = 'flex';
+                        else curLayout.style.display = 'block';
+                    }
+
                     const data = tvData[index];
-                    if (data) {
-                        tvTag.innerHTML = data.tag;
-                        tvTitle.innerHTML = data.title;
-                        tvDesc.innerHTML = data.desc;
-                        tvQrText.innerHTML = data.qrText;
-                        tvImg.src = data.img;
-                        const industrySection = document.getElementById('industry-section');
+                    const industrySection = document.getElementById('industry-section');
+                    if (data && industrySection) {
                         industrySection.style.backgroundImage = `url('${data.sidebarBg}')`;
                     }
 
