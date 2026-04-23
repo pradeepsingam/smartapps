@@ -336,6 +336,9 @@ p {
   width: 100%;
   min-height: 800px;
   background: #111;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.4s ease;
   position: relative;
 }
 
@@ -347,7 +350,9 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(to right, rgba(20, 20, 25, 0.95) 0%, rgba(20, 20, 25, 0.6) 100%), url('assets/cafeteria-bg.jpg') center/cover no-repeat;
+  background: linear-gradient(to right, rgba(20, 20, 25, 0.85) 0%, rgba(20, 20, 25, 0.4) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: var(--text-light);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 10;
@@ -414,18 +419,11 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url('assets/cafeteria-bg.jpg') center/cover no-repeat;
+  background: transparent;
 }
 
 .industry-main::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(220, 220, 225, 0.4);
-  z-index: 1;
+  display: none;
 }
 
 .industry-main>* {
@@ -437,13 +435,14 @@ p {
   background: #fff;
   border: 8px solid #2B2B2B;
   border-radius: 4px;
-  width: 100%;
+  width: calc(658px * (100vw * (1 / 1680px)));
   max-width: 900px;
-  height: 500px;
+  height: calc(420px * (100vw * (1 / 1680px)));
   display: flex;
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
+  margin-left: 15%;
 }
 
 .tv-screen-bezel {

@@ -280,7 +280,7 @@
                 desc: "Explore our new seasonal menu full of hearty and healthy options for everyone. Made with locally sourced ingredients.",
                 qrText: "View Full<br>Menu<br>Online!",
                 img: "assets/food.jpg",
-                sidebarBg: "assets/cafeteria-bg.jpg"
+                sidebarBg: "assets/slide_bg/Restaurant_interior_with_202604231006.jpeg"
             },
             {
                 tag: "FLASH SALE",
@@ -288,7 +288,7 @@
                 desc: "Don't miss out on our biggest sale of the season. Available in-store and online while supplies last.",
                 qrText: "Scan to<br>get your<br>coupon!",
                 img: "assets/retail.jpg",
-                sidebarBg: "assets/retail-bg.jpg"
+                sidebarBg: "assets/slide_bg/Clothing_store_interior_202604231007.jpeg"
             },
             {
                 tag: "UPCOMING EVENT",
@@ -296,7 +296,7 @@
                 desc: "Join industry leaders for three days of innovation, networking, and groundbreaking keynotes. Secure your spot today.",
                 qrText: "Register<br>Now<br>Here!",
                 img: "assets/event.jpg",
-                sidebarBg: "assets/event-bg.jpg"
+                sidebarBg: "assets/slide_bg/Elegant_event_venue_202604231010.jpeg"
             },
             {
                 tag: "TRAINING: 14 October, 1-4pm",
@@ -304,7 +304,7 @@
                 desc: "Designed to equip participants with the knowledge, skills, and mindset needed to excel in their roles, contribute meaningfully to their organizations.",
                 qrText: "Scan and<br>sign up<br>today!",
                 img: "assets/workers.jpg",
-                sidebarBg: "assets/industry-bg.jpg"
+                sidebarBg: "assets/slide_bg/Modern_factory_warehouse_202604231012.jpeg"
             },
             {
                 tag: "GUEST SERVICES",
@@ -312,7 +312,7 @@
                 desc: "Relax and unwind with our award-winning spa treatments and world-class dining experiences designed for ultimate comfort.",
                 qrText: "Book Spa<br>Session<br>Today!",
                 img: "assets/resort.jpg",
-                sidebarBg: "assets/resort-bg.jpg"
+                sidebarBg: "assets/slide_bg/Luxury_hospitality_setting_202604231013.jpeg"
             }
         ];
 
@@ -347,8 +347,8 @@
                         tvDesc.innerHTML = data.desc;
                         tvQrText.innerHTML = data.qrText;
                         tvImg.src = data.img;
-                        sidebar.style.backgroundImage = `linear-gradient(to right, rgba(20,20,25, 0.95) 0%, rgba(20,20,25, 0.6) 100%), url('${data.sidebarBg}')`;
-                        industryMain.style.backgroundImage = `url('${data.sidebarBg}')`;
+                        const industrySection = document.getElementById('industry-section');
+                        industrySection.style.backgroundImage = `url('${data.sidebarBg}')`;
                     }
 
                     // Fade in animation
