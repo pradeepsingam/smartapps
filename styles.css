@@ -1195,7 +1195,7 @@ p {
 .navbar-menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 5rem;
 }
 
 /* Responsive & Mobile Menu */
