@@ -551,7 +551,7 @@ p {
   font-size: 1.15rem;
   font-weight: 600;
   padding: 0.5rem 0;
-  border-bottom: 1px dotted rgba(255,255,255,0.15);
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.15);
 }
 
 #tv-layout-0 .menu-qr {
@@ -681,7 +681,7 @@ p {
   background: #fff;
   padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 #tv-layout-2 .session .time {
@@ -710,7 +710,7 @@ p {
   background: #fff;
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
 
@@ -761,18 +761,18 @@ p {
   flex-direction: column;
   justify-content: space-between;
   padding: 3rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%, rgba(0,0,0,0.3) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 50%, rgba(0, 0, 0, 0.3) 100%);
   color: #fff;
 }
 
 #tv-layout-4 .weather-widget {
   align-self: flex-end;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 1rem 1.5rem;
   border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   text-align: right;
 }
 
@@ -1375,7 +1375,7 @@ p {
 
 /* Footer */
 .footer {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FAFAFC 100%);
+  background: #000;
   color: var(--text-dark);
   padding: 5rem 0 2rem;
   border-top: 1px solid rgba(0, 0, 0, 0.03);
@@ -1428,7 +1428,7 @@ p {
   font-size: 0.85rem;
   margin-bottom: 1.5rem;
   font-weight: 800;
-  color: var(--text-dark);
+  color: var(--text-light);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   opacity: 0.9;
